@@ -139,7 +139,8 @@ int main()
 		printf ("Escolha a opção desejada no Menu:\n\n"); // o \n serve para pular linha.
 		printf ("\t1. Registrar Nomes\n");
 		printf ("\t2. Consultar Nomes\n");
-		printf ("\t3. Deletar Nomes\n\n");
+		printf ("\t3. Deletar Nomes\n");
+		printf("\t4. Sair do Sistema\n\n");
 	
 		printf ("Qual a opção desejada? "); 
 		scanf("%d", &opcao);
@@ -156,6 +157,10 @@ int main()
 				break;
 			case 3:
 				deletar();
+				break;
+			case 4:
+				printf("Obrigado por utilizar o sistema!\n");
+				return 0;
 				break;
 			default:
 				printf("OPÇÃO INCORRETA, TENTE NOVAMENTE!\n\n");
