@@ -129,44 +129,59 @@ int main()
 {
 	int opcao = 0;// Definindo variáveis.
 	int laco = 1;// Variável para o retorno de tela.
+	char senhadigitada[10]="a";
+	int comparacao; //foi necessário ser incluída esta variável para o programa reconhcecer a senha admin como correta.
 	
-	for(laco = 1; laco = 1;) //Função para retornar na tela inicial. Está sem a incrementação para criar o looping infinito!
-  	{
-		system("cls");// Foi necessáio colocar no início da função For para não misturar as telas do menu inicial com a tela seguinte da opção desejada.
-		setlocale(LC_ALL, "Portuguese"); // esta função serve para usar caracteres da lingua portuguesa.
+	printf ("\t*** CARTÓRIO DA EBAC ***\n\n");
+	printf ("Login de Administrador!\n\n");
+	printf ("Digite sua senha: ");
+	scanf("%s", senhadigitada);
 	
-	    printf ("\t*** CARTÓRIO DA EBAC ***\n\n"); // o \t é uma tabulação e serve para centralizar o texto.
-		printf ("Escolha a opção desejada no Menu:\n\n"); // o \n serve para pular linha.
-		printf ("\t1. Registrar Nomes\n");
-		printf ("\t2. Consultar Nomes\n");
-		printf ("\t3. Deletar Nomes\n");
-		printf("\t4. Sair do Sistema\n\n");
+	comparacao = strcmp(senhadigitada, "admin");// por ser uma string, foi necessário colocar o comando strcmp!
 	
-		printf ("Qual a opção desejada? "); 
-		scanf("%d", &opcao);
+	if(comparacao == 0)// o strcmp compara o valor digitado com o informado e ao dar o valor zero, segue para os próximos passos.
+	{
+		for(laco = 1; laco = 1;) //Função para retornar na tela inicial. Está sem a incrementação para criar o looping infinito!
+  		{
+			system("cls");// Foi necessáio colocar no início da função For para não misturar as telas do menu inicial com a tela seguinte da opção desejada.
+			setlocale(LC_ALL, "Portuguese"); // esta função serve para usar caracteres da lingua portuguesa.
 	
-		system("cls"); // serve para limpar a tela.
+	    	printf ("\t*** CARTÓRIO DA EBAC ***\n\n"); // o \t é uma tabulação e serve para centralizar o texto.
+			printf ("Escolha a opção desejada no Menu:\n\n"); // o \n serve para pular linha.
+			printf ("\t1. Registrar Nomes\n");
+			printf ("\t2. Consultar Nomes\n");
+			printf ("\t3. Deletar Nomes\n");
+			printf("\t4. Sair do Sistema\n\n");
 	
-		switch(opcao)
-		{
-			case 1:
-				registro();
-				break;
-			case 2:
-				consulta();
-				break;
-			case 3:
-				deletar();
-				break;
-			case 4:
-				printf("Obrigado por utilizar o sistema!\n");
-				return 0;
-				break;
-			default:
-				printf("OPÇÃO INCORRETA, TENTE NOVAMENTE!\n\n");
-				system("pause");
-				break;
+			printf ("Qual a opção desejada? "); 
+			scanf("%d", &opcao);
+	
+			system("cls"); // serve para limpar a tela.
+	
+			switch(opcao)
+			{
+				case 1:
+					registro();
+					break;
+				case 2:
+					consulta();
+					break;
+				case 3:
+					deletar();
+					break;
+				case 4:
+					printf("Obrigado por utilizar o sistema!\n");
+					return 0;
+					break;
+				default:
+					printf("OPÇÃO INCORRETA, TENTE NOVAMENTE!\n\n");
+					system("pause");
+					break;
+			}
 		}
 	}
+	else
+		printf("\nSenha incorreta!\n");
+	
 }
 
